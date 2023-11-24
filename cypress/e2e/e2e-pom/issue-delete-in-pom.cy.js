@@ -1,3 +1,4 @@
+// Risto Hanson
 /**
  * This is an example file and approach for POM in Cypress
  */
@@ -12,14 +13,22 @@ describe('Issue delete', () => {
     });
   });
 
-  //issue title, that we are testing with, saved into variable
-  const issueTitle = 'This is an issue of type: Task.';
+const issueTitle = 'This is an issue of type: Task.';
 
-  it('Should delete issue successfully', () => {
-    //add steps to delete issue
-  });
+ it('Should delete issue successfully', () => {
+  IssueModal.getIssueDetailModal();
+  IssueModal.clickDeleteButton();
+  IssueModal.confirmDeletion();
+  IssueModal.ensureIssueIsNotVisibleOnBoard(issueTitle);
+    });
 
-  it('Should cancel deletion process successfully', () => {
-    //add steps to start deletion proces but cancel it
-  });
+  
+
+it('Should cancel deletion process successfully', () => {
+  IssueModal.getIssueDetailModal();
+  IssueModal.clickDeleteButton();
+  IssueModal.cancelDeletion();
+  IssueModal.closeDetailModal();
+  IssueModal.ensureIssueIsVisibleOnBoard(issueTitle);
+});
 });
