@@ -1,3 +1,6 @@
+
+// Risto Hanson
+
 describe('Issue task deletion', () => {
     beforeEach(() => {
       cy.visit('/');
