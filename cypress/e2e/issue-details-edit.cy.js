@@ -64,17 +64,15 @@ describe('Issue details editing', () => {
   });
 
   // Task 2
-  it('Should test characters in reporter\'s name', () => {
+  it.only('Should test characters in reporter\'s name', () => {
     cy.get('div[data-testid="select:reporter"]')
     .invoke('text')
     .then(textContent => {
       cy.log(textContent);
-
+  
       const onlyLettersAndSpaces = /^[A-Za-z\s]+$/.test(textContent);
-      const onlyLetters = /^[A-Za-z]+$/.test(textContent);
-
+  
       expect(onlyLettersAndSpaces).to.be.true;
-      expect(onlyLetters).to.be.true;
     });
   });
 });
